@@ -11,7 +11,7 @@ function Balance({ token, setMessage }) {
 
   const fetchBalance = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/v1/balance', {
+      const response = await axios.get('${process.env.REACT_APP_API_URL}/api/v1/balance', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBalance(response.data.balance);

@@ -9,7 +9,7 @@ function Register({ setMessage, onSwitchToLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/register', {
+      const response = await axios.post('${process.env.REACT_APP_API_URL}/api/v1/register', {
         username,
         password,
         email,

@@ -11,7 +11,7 @@ function Rates({ token, setMessage }) {
 
   const fetchRates = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/v1/exchange/rates', {
+      const response = await axios.get('${process.env.REACT_APP_API_URL}/api/v1/exchange/rates', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRates(response.data.rates);

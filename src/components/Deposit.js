@@ -9,7 +9,7 @@ function Deposit({ token, setMessage }) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:8080/api/v1/wallet/deposit',
+        '${process.env.REACT_APP_API_URL}/api/v1/wallet/deposit',
         { amount: parseFloat(amount), currency },
         { headers: { Authorization: `Bearer ${token}` } }
       );

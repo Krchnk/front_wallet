@@ -10,7 +10,7 @@ function Exchange({ token, setMessage }) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:8080/api/v1/exchange',
+        '${process.env.REACT_APP_API_URL}/api/v1/exchange',
         { from_currency: fromCurrency, to_currency: toCurrency, amount: parseFloat(amount) },
         { headers: { Authorization: `Bearer ${token}` } }
       );

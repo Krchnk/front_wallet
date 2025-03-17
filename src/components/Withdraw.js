@@ -9,7 +9,7 @@ function Withdraw({ token, setMessage }) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:8080/api/v1/wallet/withdraw',
+        '${process.env.REACT_APP_API_URL}/api/v1/wallet/withdraw',
         { amount: parseFloat(amount), currency },
         { headers: { Authorization: `Bearer ${token}` } }
       );
