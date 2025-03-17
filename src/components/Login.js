@@ -7,11 +7,14 @@ function Login({ setToken, setMessage, onSwitchToRegister }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const apiUrl = `${process.env.REACT_APP_API_URL}/api/v1/login`;
+    console.log('Sending login request to:', apiUrl);
     try {
-      const response = await axios.post('${process.env.REACT_APP_API_URL}/api/v1/login', {
+      const response = await axios.post(apiUrl, {
         username,
         password,
       });
+      console.log('Login response:', response.data);
       setToken(response.data.token);
       setMessage('Login successful');
       setUsername('');
