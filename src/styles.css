@@ -302,3 +302,28 @@ body {
   font-size: 1.2rem;
   color: #666;
 }
+
+
+.logout-button {
+  background: #dc3545; /* Красный цвет */
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600; /* Увеличим вес шрифта для акцента */
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease; /* Добавим эффект поднятия */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавим тень */
+}
+
+.logout-button:hover {
+  background: #c82333; /* Темнее при наведении */
+  transform: translateY(-2px); /* Лёгкое поднятие */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Усиленная тень */
+}
+
+.logout-button:active {
+  transform: translateY(0); /* Возвращение при нажатии */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
