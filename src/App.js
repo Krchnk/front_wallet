@@ -28,7 +28,6 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Currency Wallet</h1>
       
       {!token ? (
         showLogin ? (

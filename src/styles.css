@@ -151,6 +151,20 @@ body {
     margin-bottom: 15px;
     font-weight: 600;
   }
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between; /* Выравнивает h2 слева, кнопку справа */
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+}
   
   .balance-list, .rates-list {
     margin-bottom: 15px;
@@ -315,6 +329,7 @@ body {
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease; /* Добавим эффект поднятия */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавим тень */
+  
 }
 
 .logout-button:hover {
