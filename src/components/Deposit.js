@@ -8,16 +8,20 @@ function Deposit({ token, setMessage }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const apiUrl = `${process.env.REACT_APP_API_URL}/api/v1/wallet/deposit`;
+    console.log('Sending deposit request to:', apiUrl, 'with data:', { amount: parseFloat(amount), currency });
     try {
       const response = await axios.post(
         apiUrl,
         { amount: parseFloat(amount), currency },
         { headers: { Authorization: `Bearer ${token}` } }
       );
+      console.log('Deposit response:', response.data);
       setMessage(response.data.message);
       setAmount('');
     } catch (error) {
-      setMessage(`Error: ${error.response?.data?.error || 'Deposit failed'}`);
+      const errorMsg = error.response?.data?.error || 'Deposit failed';
+      console.error('Deposit error:', error.response || error);
+      setMessage(`Error: ${errorMsg}`);
     }
   };
 
@@ -44,6 +48,7 @@ function Deposit({ token, setMessage }) {
         </select>
         <button type="submit" className="action-button">Deposit</button>
       </form>
+      {setMessage && <p>{setMessage}</p>} {/* Для отладки, если нужно */}
     </div>
   );
 }
