@@ -8,8 +8,11 @@ function Register({ setMessage, onSwitchToLogin }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const apiUrl = `${process.env.REACT_APP_API_URL}/api/v1/register`;
+        console.log('Sending signup request to:', apiUrl);
+        console.log('Request data:', { username, password, email });
     try {
-      const response = await axios.post('${process.env.REACT_APP_API_URL}/api/v1/register', {
+      const response = await axios.post(apiUrl, {
         username,
         password,
         email,
