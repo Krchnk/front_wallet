@@ -7,9 +7,10 @@ function Withdraw({ token, setMessage }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const apiUrl = `${process.env.REACT_APP_API_URL}/api/v1/wallet/withdraw`;
     try {
       const response = await axios.post(
-        '${process.env.REACT_APP_API_URL}/api/v1/wallet/withdraw',
+        apiUrl,
         { amount: parseFloat(amount), currency },
         { headers: { Authorization: `Bearer ${token}` } }
       );

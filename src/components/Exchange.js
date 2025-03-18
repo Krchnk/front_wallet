@@ -8,9 +8,10 @@ function Exchange({ token, setMessage }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const apiUrl = `${process.env.REACT_APP_API_URL}/api/v1/exchange`;
     try {
       const response = await axios.post(
-        '${process.env.REACT_APP_API_URL}/api/v1/exchange',
+        apiUrl,
         { from_currency: fromCurrency, to_currency: toCurrency, amount: parseFloat(amount) },
         { headers: { Authorization: `Bearer ${token}` } }
       );
